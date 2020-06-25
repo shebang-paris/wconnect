@@ -8,6 +8,8 @@
   },
   "extends": "airbnb-base",
   "rules": {
+    "import/extensions": [ "error", "always", { "ignorePackages": true } ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["lib/test/*.js"]}],
     // Code's accessibility matters
     "indent": [ "error", "tab" ],
     "no-tabs": ["error", { "allowIndentationTabs": true }],
@@ -16,6 +18,18 @@
     "padded-blocks": "off"
   },
   "overrides": [
+    {
+      "files": ["*.spec.js"],
+      "globals": {
+        "expect": "readonly"
+      },
+      "env": {
+        "mocha": true
+      },
+      "rules": {
+        "no-unused-expressions": "off"
+      }
+    },
     {
       "files": ["common/*.js"],
       "env": {

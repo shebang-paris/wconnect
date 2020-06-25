@@ -1,0 +1,44 @@
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Unit Tests</title>
+	<link rel="stylesheet" href="/node_modules/mocha/mocha.css" />
+	<style>h1, h2, h3 { text-transform:initial; }</style>
+	<script src="/node_modules/mocha/mocha.js"></script>
+	<script src="/node_modules/chai/chai.js"></script>
+</head>
+<body>
+
+	<!-- A container element for the visual Mocha results -->
+	<div id="mocha"></div>
+
+	<!-- Mocha setup and initiation code -->
+	<script>
+	window.expect = chai.expect;
+	window.assert = chai.assert;
+	
+	const load = () => {
+		let loaded = 0;
+		const modules = [];
+		const loadModules = () => {
+			const script = document.createElement('script');
+			script.setAttribute('type', 'module');
+			script.setAttribute('src', modules[loaded]);
+			document.head.appendChild(script);
+			script.onload = () => {
+				loaded += 1;
+				if (loaded === modules.length) {
+					mocha.run();
+				} else {
+					loadModules();
+				}
+			};
+		};
+		loadModules();
+	};
+	mocha.setup('bdd');
+	window.addEventListener('load', () => load());
+	</script>
+
+</body>
+</html>

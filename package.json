@@ -7,11 +7,19 @@
     "npm": ">=5.2.0"
   },
   "scripts": {
-    "lint": "eslint ./lib"
+    "lint": "eslint ./lib",
+    "test": "mocha --reporter spec --require lib/test/node.js -r esm 'lib/{,+(common|node|test)}//*.spec.js'",
+    "test:browser": "node -r esm lib/test/browser.js"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "eslint-plugin-import": "^2.20.2",
+    "mocha": "^6.1.4",
+    "ws": "^7.3.0"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
   }
 }
