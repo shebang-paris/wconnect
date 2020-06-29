@@ -9,9 +9,11 @@
   "scripts": {
     "lint": "eslint ./lib",
     "test": "mocha --reporter spec --require lib/test/node.js -r esm 'lib/{,+(common|node|test)}//*.spec.js'",
-    "test:browser": "node -r esm lib/test/browser.js"
+    "test:browser": "node -r esm lib/test/browser.js",
+    "coverage": "c8 mocha --reporter progress --require lib/test/node.js -r esm 'lib/{,+(common|node|test)}//*.spec.js'"
   },
   "devDependencies": {
+    "c8": "^7.2.0",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
