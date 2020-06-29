@@ -6,6 +6,7 @@
 	<style>h1, h2, h3 { text-transform:initial; }</style>
 	<script src="/node_modules/mocha/mocha.js"></script>
 	<script src="/node_modules/chai/chai.js"></script>
+	<script src="/node_modules/chai-spies/chai-spies.js"></script>
 </head>
 <body>
 
@@ -16,6 +17,7 @@
 	<script>
 	window.expect = chai.expect;
 	window.assert = chai.assert;
+	window.spy = chai.spy;
 	
 	const load = () => {
 		let loaded = 0;

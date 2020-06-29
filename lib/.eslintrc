@@ -21,7 +21,8 @@
     {
       "files": ["*.spec.js"],
       "globals": {
-        "expect": "readonly"
+        "expect": "readonly",
+        "spy": "readonly"
       },
       "env": {
         "mocha": true
