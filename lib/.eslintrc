@@ -13,6 +13,7 @@
     // Code's accessibility matters
     "indent": [ "error", "tab" ],
     "no-tabs": ["error", { "allowIndentationTabs": true }],
+    "lines-between-class-members": "off",
     "max-len": "off",
     "object-curly-newline": ["error", { "multiline": true }],
     "padded-blocks": "off"
